@@ -1,0 +1,377 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================================
+   DESIGN SYSTEM — Premium Healthcare Software Engineer Portfolio
+   Modern · Minimal · Enterprise · Trustworthy
+   Palette: high-contrast OBSIDIAN neutral brand + semantic status colors.
+   All color pairs verified WCAG 2.1 AA (see DESIGN_SYSTEM.md).
+   Values are OKLCH for perceptual uniformity.
+   ========================================================================== */
+
+@theme inline {
+  /* --- Base surfaces & text (shadcn contract) --- */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* --- Brand: healthcare blue (primary) + teal accent --- */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-teal: var(--teal);
+  --color-teal-foreground: var(--teal-foreground);
+  --color-teal-subtle: var(--teal-subtle);
+  --color-teal-subtle-foreground: var(--teal-subtle-foreground);
+
+  /* --- Semantic: solid (text/icon) + subtle (tinted surface) sets --- */
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-subtle: var(--info-subtle);
+  --color-info-subtle-foreground: var(--info-subtle-foreground);
+
+  /* --- Accent: muted emerald (emphasis only) --- */
+  --color-emerald: var(--emerald);
+  --color-emerald-foreground: var(--emerald-foreground);
+  --color-emerald-subtle: var(--emerald-subtle);
+  --color-emerald-subtle-foreground: var(--emerald-subtle-foreground);
+
+  /* --- Surface (secondary background band, e.g. #111 in dark) --- */
+  --color-surface: var(--surface);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-subtle: var(--success-subtle);
+  --color-success-subtle-foreground: var(--success-subtle-foreground);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-warning-subtle-foreground: var(--warning-subtle-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-subtle: var(--destructive-subtle);
+  --color-destructive-subtle-foreground: var(--destructive-subtle-foreground);
+
+  /* --- Data-viz sequence (blue → teal, healthcare) --- */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* --- Sidebar (shadcn contract, retained) --- */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* --- Fonts --- */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-sans);
+
+  /* --- Radius (rounded, restrained) --- */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+
+  /* --- Soft, healthcare-tinted shadows (override defaults; never harsh) --- */
+  --shadow-2xs: 0 1px 2px 0 var(--shadow-color-weak);
+  --shadow-xs: 0 1px 2px 0 var(--shadow-color-weak);
+  --shadow-sm: 0 1px 2px 0 var(--shadow-color-weak), 0 1px 3px 0 var(--shadow-color-weak);
+  --shadow-md: 0 2px 4px -1px var(--shadow-color-weak), 0 4px 12px -2px var(--shadow-color);
+  --shadow-lg: 0 4px 8px -2px var(--shadow-color-weak), 0 12px 24px -4px var(--shadow-color);
+  --shadow-xl: 0 8px 16px -4px var(--shadow-color), 0 24px 48px -8px var(--shadow-color-strong);
+  /* Focus / ring elevation for interactive brand elements */
+  --shadow-ring: 0 0 0 3px var(--ring-glow);
+
+  /* --- Fluid type scale (modular; display sizes scale with viewport) --- */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5715;
+  --text-base: 1rem;
+  --text-base--line-height: 1.65;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.35;
+  --text-2xl--letter-spacing: -0.01em;
+  --text-3xl: clamp(1.75rem, 1.5rem + 1.1vw, 2.125rem);
+  --text-3xl--line-height: 1.25;
+  --text-3xl--letter-spacing: -0.015em;
+  --text-4xl: clamp(2.125rem, 1.75rem + 1.7vw, 2.75rem);
+  --text-4xl--line-height: 1.15;
+  --text-4xl--letter-spacing: -0.02em;
+  --text-5xl: clamp(2.5rem, 1.9rem + 2.8vw, 3.5rem);
+  --text-5xl--line-height: 1.08;
+  --text-5xl--letter-spacing: -0.025em;
+  --text-6xl: clamp(3rem, 2.1rem + 4vw, 4.5rem);
+  --text-6xl--line-height: 1.03;
+  --text-6xl--letter-spacing: -0.03em;
+
+  /* --- Motion tokens (restrained, enterprise) --- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 400ms;
+}
+
+/* ============================== LIGHT ================================= */
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.187 0.0063 271.07); /* #121316 obsidian ink */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.187 0.0063 271.07);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.187 0.0063 271.07);
+
+  --muted: oklch(0.9674 0.0013 286.38); /* #f4f4f5 */
+  --muted-foreground: oklch(0.4419 0.0146 285.79); /* #52525b */
+
+  --border: oklch(0.9197 0.004 286.32); /* #e4e4e7 hairline */
+  --input: oklch(0.9197 0.004 286.32);
+  --ring: oklch(0.2103 0.0059 285.89); /* obsidian focus ring */
+  --ring-glow: oklch(0.2103 0.0059 285.89 / 0.24);
+
+  /* Brand: obsidian black */
+  --primary: oklch(0.2103 0.0059 285.89); /* #18181b */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9674 0.0013 286.38);
+  --secondary-foreground: oklch(0.2103 0.0059 285.89);
+  --accent: oklch(0.9674 0.0013 286.38); /* subtle neutral hover surface */
+  --accent-foreground: oklch(0.2103 0.0059 285.89);
+
+  --teal: oklch(0.2739 0.0055 286.03); /* graphite accent (formerly teal) */
+  --teal-foreground: oklch(1 0 0);
+  --teal-subtle: oklch(0.959 0.004 286.32); /* #f1f1f4 */
+  --teal-subtle-foreground: oklch(0.2739 0.0055 286.03);
+
+  /* Semantic */
+  --info: oklch(0.2103 0.0059 285.89);
+  --info-foreground: oklch(1 0 0);
+  --info-subtle: oklch(0.9674 0.0013 286.38); /* #f4f4f5 */
+  --info-subtle-foreground: oklch(0.2739 0.0055 286.03); /* #27272a */
+
+  /* Secondary surface band */
+  --surface: oklch(0.9761 0 89.88); /* #f7f7f8 */
+
+  /* Accent: muted emerald (emphasis only) */
+  --emerald: oklch(0.5081 0.1049 165.61); /* #047857 */
+  --emerald-foreground: oklch(1 0 0);
+  --emerald-subtle: oklch(0.9565 0.015 164.73); /* #e8f4ee */
+  --emerald-subtle-foreground: oklch(0.4315 0.0995 157.67); /* #05603a */
+
+  --success: oklch(0.5273 0.1371 150.07); /* #15803d */
+  --success-foreground: oklch(1 0 0);
+  --success-subtle: oklch(0.9612 0.0173 159.12); /* #e9f6ee */
+  --success-subtle-foreground: oklch(0.5273 0.1371 150.07);
+
+  --warning: oklch(0.5307 0.1385 49.27); /* #a94e08 */
+  --warning-foreground: oklch(1 0 0);
+  --warning-subtle: oklch(0.9597 0.0231 75.86); /* #fbf0e1 */
+  --warning-subtle-foreground: oklch(0.5307 0.1385 49.27);
+
+  --destructive: oklch(0.5404 0.1765 28.56); /* #c0362c */
+  --destructive-foreground: oklch(1 0 0);
+  --destructive-subtle: oklch(0.9547 0.0164 22.08); /* #fbeceb */
+  --destructive-subtle-foreground: oklch(0.5404 0.1765 28.56);
+
+  /* Data viz: obsidian ramp (dark → light) */
+  --chart-1: oklch(0.2103 0.0059 285.89);
+  --chart-2: oklch(0.3703 0.0119 285.81);
+  --chart-3: oklch(0.5517 0.0138 285.94);
+  --chart-4: oklch(0.7118 0.0129 286.07);
+  --chart-5: oklch(0.8711 0.0055 286.29);
+
+  /* Soft shadow color (neutral, low opacity) */
+  --shadow-color-weak: oklch(0.15 0 0 / 0.04);
+  --shadow-color: oklch(0.15 0 0 / 0.07);
+  --shadow-color-strong: oklch(0.15 0 0 / 0.1);
+
+  /* Sidebar */
+  --sidebar: oklch(0.9674 0.0013 286.38);
+  --sidebar-foreground: oklch(0.187 0.0063 271.07);
+  --sidebar-primary: oklch(0.2103 0.0059 285.89);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.9674 0.0013 286.38);
+  --sidebar-accent-foreground: oklch(0.2103 0.0059 285.89);
+  --sidebar-border: oklch(0.9197 0.004 286.32);
+  --sidebar-ring: oklch(0.2103 0.0059 285.89);
+}
+
+/* =============================== DARK ================================= */
+.dark {
+  --background: oklch(0.1398 0 89.88); /* #090909 obsidian */
+  --foreground: oklch(0.9851 0 89.88); /* #fafafa */
+
+  --card: oklch(0.1957 0 89.88); /* #151515 */
+  --card-foreground: oklch(0.9851 0 89.88);
+  --popover: oklch(0.1957 0 89.88);
+  --popover-foreground: oklch(0.9851 0 89.88);
+
+  --muted: oklch(0.1776 0 89.88); /* #111111 surface */
+  --muted-foreground: oklch(0.7118 0.0129 286.07); /* #a1a1aa */
+
+  --surface: oklch(0.1776 0 89.88); /* #111111 */
+
+  --border: oklch(0.2562 0 89.88); /* #232323 */
+  --input: oklch(0.2562 0 89.88);
+  --ring: oklch(0.7118 0.0129 286.07); /* neutral, visible focus */
+  --ring-glow: oklch(0.7729 0.1535 163.22 / 0.28); /* emerald focus glow */
+
+  /* Brand: light-on-dark (near-white primary) */
+  --primary: oklch(0.9851 0 89.88); /* #fafafa */
+  --primary-foreground: oklch(0.1398 0 89.88); /* #090909 */
+  --secondary: oklch(0.1957 0 89.88); /* #151515 */
+  --secondary-foreground: oklch(0.9851 0 89.88);
+  --accent: oklch(0.2264 0 89.88); /* #1c1c1c hover surface */
+  --accent-foreground: oklch(0.9851 0 89.88);
+
+  /* Accent: muted emerald (emphasis only) */
+  --emerald: oklch(0.7729 0.1535 163.22); /* #34d399 */
+  --emerald-foreground: oklch(0.1811 0.0305 163.53); /* #04160e */
+  --emerald-subtle: oklch(0.2217 0.0269 165.78); /* #0e1f18 */
+  --emerald-subtle-foreground: oklch(0.8452 0.1299 164.98); /* #6ee7b7 */
+
+  /* Graphite accent (retained token; unused by homepage) */
+  --teal: oklch(0.8711 0.0055 286.29);
+  --teal-foreground: oklch(0.1398 0 89.88);
+  --teal-subtle: oklch(0.1957 0 89.88);
+  --teal-subtle-foreground: oklch(0.8711 0.0055 286.29);
+
+  /* Semantic */
+  --info: oklch(0.9851 0 89.88);
+  --info-foreground: oklch(0.1398 0 89.88);
+  --info-subtle: oklch(0.1957 0 89.88); /* #151515 */
+  --info-subtle-foreground: oklch(0.8711 0.0055 286.29);
+
+  --success: oklch(0.8003 0.1821 151.71); /* #4ade80 */
+  --success-foreground: oklch(0.1398 0 89.88);
+  --success-subtle: oklch(0.2807 0.047 157.99); /* #123020 */
+  --success-subtle-foreground: oklch(0.8362 0.1258 156.83);
+
+  --warning: oklch(0.8369 0.1644 84.43); /* #fbbf24 */
+  --warning-foreground: oklch(0.1398 0 89.88);
+  --warning-subtle: oklch(0.2667 0.0347 82.36); /* #2e2411 */
+  --warning-subtle-foreground: oklch(0.8722 0.1137 84.34);
+
+  --destructive: oklch(0.7106 0.1661 22.22); /* #f87171 */
+  --destructive-foreground: oklch(0.1398 0 89.88);
+  --destructive-subtle: oklch(0.2493 0.042 25.18); /* #331917 */
+  --destructive-subtle-foreground: oklch(0.8088 0.0968 24.1);
+
+  /* Data viz: emerald highlight + obsidian ramp */
+  --chart-1: oklch(0.7729 0.1535 163.22); /* emerald */
+  --chart-2: oklch(0.8711 0.0055 286.29);
+  --chart-3: oklch(0.7118 0.0129 286.07);
+  --chart-4: oklch(0.5517 0.0138 285.94);
+  --chart-5: oklch(0.4419 0.0146 285.79);
+
+  --shadow-color-weak: oklch(0 0 0 / 0.3);
+  --shadow-color: oklch(0 0 0 / 0.45);
+  --shadow-color-strong: oklch(0 0 0 / 0.6);
+
+  /* Sidebar */
+  --sidebar: oklch(0.1957 0 89.88);
+  --sidebar-foreground: oklch(0.9851 0 89.88);
+  --sidebar-primary: oklch(0.9851 0 89.88);
+  --sidebar-primary-foreground: oklch(0.1398 0 89.88);
+  --sidebar-accent: oklch(0.2264 0 89.88);
+  --sidebar-accent-foreground: oklch(0.9851 0 89.88);
+  --sidebar-border: oklch(0.2562 0 89.88);
+  --sidebar-ring: oklch(0.7118 0.0129 286.07);
+}
+
+/* ============================== BASE ================================== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  /* Headings: tight tracking, balanced wrapping, heading font */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight text-balance;
+    color: var(--foreground);
+  }
+  /* Long-form text wraps prettily */
+  p {
+    text-wrap: pretty;
+  }
+  /* Consistent, brand-colored focus for keyboard users */
+  :focus-visible {
+    @apply outline-ring outline-2 outline-offset-2;
+  }
+  /* Tabular figures for metrics/stats */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Respect reduced-motion preference (accessibility + perf) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Route enter animation (CSS-only; replaces a per-route JS motion wrapper).
+   Auto-disabled by the reduced-motion rule above. */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-page-in {
+  animation: page-in var(--duration-base) var(--ease-out-soft) both;
+}

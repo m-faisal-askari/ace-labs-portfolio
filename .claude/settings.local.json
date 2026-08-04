@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm *)",
+      "PowerShell(Test-Path node_modules/next; Test-Path node_modules/sharp; npx --no-install next --version)"
+    ]
+  }
+}
