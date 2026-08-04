@@ -10,7 +10,7 @@ import { SkillCard } from "@/components/skills/skill-card";
 export const metadata = constructMetadata({
   title: "Skills",
   description:
-    "The technologies Ace Labs works with across the stack — frontend, backend, databases, cloud, authentication, and tooling.",
+    "The technologies Ace Labs works with across the stack: frontend, backend, databases, cloud, authentication, and tooling.",
   pathname: "/skills",
 });
 
@@ -28,7 +28,7 @@ export default function SkillsPage() {
         badge="Technical Skills"
         eyebrow="Skills"
         title="The tools we build healthcare software with."
-        description="A full-stack toolkit spanning the frontend, backend, data, and delivery — the technologies we reach for to design and ship reliable healthcare applications."
+        description="A full-stack toolkit spanning the frontend, backend, data, and delivery: the technologies we reach for to design and ship reliable healthcare applications."
       />
 
       <Section spacing="lg">

@@ -59,7 +59,7 @@ export const intro = {
   location: "Karachi, Pakistan",
   availability: "Available for new projects & partnerships",
   statement:
-    "We build web software for the healthcare sector — the systems clinics, hospitals, laboratories, pharmacies, and telemedicine providers rely on to run day to day. Our focus is turning complex operational requirements into secure, scalable, and genuinely usable applications.",
+    "We build web software for the healthcare sector: the systems clinics, hospitals, laboratories, pharmacies, and telemedicine providers rely on to run day to day. Our focus is turning complex operational requirements into secure, scalable, and genuinely usable applications.",
 };
 
 /* -------------------------------- Mission ------------------------------- */
@@ -81,7 +81,7 @@ export const philosophy = {
       icon: ShieldCheck,
       title: "Security is not optional",
       description:
-        "In healthcare, protecting data and access is a baseline requirement — designed in from the start, never added later.",
+        "In healthcare, protecting data and access is a baseline requirement, designed in from the start, never added later.",
     },
     {
       icon: Gauge,
@@ -104,7 +104,7 @@ export const philosophy = {
 export const journey = {
   eyebrow: "Our journey",
   title: "A focused path in healthcare software.",
-  note: "Timeline entries below are placeholders — replace with real milestones.",
+  note: "Timeline entries below are placeholders; replace with real milestones.",
   items: [
     {
       period: "Focus",
@@ -174,7 +174,7 @@ export const team = {
   eyebrow: "Team",
   title: "The people behind Ace Labs.",
   description:
-    "A close-knit team that pairs engineering depth with clear communication — collaborating end to end to ship healthcare software that delivers real results.",
+    "A close-knit team that pairs engineering depth with clear communication, collaborating end to end to ship healthcare software that delivers real results.",
   members: [
     {
       name: "Faisal Askari",
@@ -204,13 +204,13 @@ export const skillAreas = {
   eyebrow: "Skills overview",
   title: "Where we focus across the stack.",
   description:
-    "Competency areas that describe the work — the specific tools are listed in the technology stack.",
+    "Competency areas that describe the work. The specific tools are listed in the technology stack.",
   items: [
     {
       icon: Layers,
       title: "Full-stack web development",
       description:
-        "End-to-end applications with Next.js, React, and Node.js — from interface to API.",
+        "End-to-end applications with Next.js, React, and Node.js, from interface to API.",
     },
     {
       icon: Boxes,
@@ -241,7 +241,7 @@ export const faq = {
     {
       question: "What kind of software do you build?",
       answer:
-        "Web-based healthcare systems — including clinic and hospital management systems, telemedicine platforms, pharmacy inventory, laboratory management, and patient portals.",
+        "Web-based healthcare systems, including clinic and hospital management systems, telemedicine platforms, pharmacy inventory, laboratory management, and patient portals.",
     },
     {
       question: "Who do you work with?",
@@ -261,7 +261,7 @@ export const faq = {
     {
       question: "Where are you based?",
       answer:
-        "Karachi, Pakistan — working with local and international clients remotely.",
+        "Karachi, Pakistan. We work with local and international clients remotely.",
     },
     {
       question: "How do we start a project?",

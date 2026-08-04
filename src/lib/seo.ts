@@ -15,7 +15,7 @@ interface ConstructMetadataOptions {
 }
 
 /** Descriptive default document title (home + fallback). */
-export const defaultTitle = `${siteConfig.name} — Healthcare Software Agency`;
+export const defaultTitle = `${siteConfig.name}: Healthcare Software Agency`;
 
 /**
  * Factory for per-page `Metadata`. Pages export:

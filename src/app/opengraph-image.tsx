@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 
 /** Social sharing image (Open Graph + Twitter). Obsidian theme, no binary asset. */
 export const runtime = "edge";
-export const alt = `${siteConfig.name} — Healthcare Software Agency`;
+export const alt = `${siteConfig.name}: Healthcare Software Agency`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

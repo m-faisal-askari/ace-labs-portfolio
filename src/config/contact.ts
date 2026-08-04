@@ -26,12 +26,12 @@ export const contactFaq = {
     {
       question: "What kinds of projects do you take on?",
       answer:
-        "Web-based healthcare software — clinic and hospital management, telemedicine, pharmacy inventory, laboratory management, and patient portals — for clinics, hospitals, startups, laboratories, pharmacies, and telemedicine teams.",
+        "Web-based healthcare software (clinic and hospital management, telemedicine, pharmacy inventory, laboratory management, and patient portals) for clinics, hospitals, startups, laboratories, pharmacies, and telemedicine teams.",
     },
     {
       question: "Are you available for new work?",
       answer:
-        "Yes — we're available for new healthcare software projects and long-term partnerships.",
+        "Yes. We're available for new healthcare software projects and long-term partnerships.",
     },
     {
       question: "How soon will you respond?",

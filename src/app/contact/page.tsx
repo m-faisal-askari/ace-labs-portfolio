@@ -20,7 +20,7 @@ import { FAQAccordion } from "@/components/contact/faq-accordion";
 export const metadata = constructMetadata({
   title: "Contact",
   description:
-    "Get in touch with Ace Labs to discuss healthcare software projects — new builds and long-term partnerships welcome.",
+    "Get in touch with Ace Labs to discuss healthcare software projects. New builds and long-term partnerships welcome.",
   pathname: "/contact",
 });
 

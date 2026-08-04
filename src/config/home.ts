@@ -55,7 +55,7 @@ export const hero = {
   title:
     "Modern healthcare software that improves efficiency and patient experience.",
   description:
-    "Ace Labs is a full-stack software agency focused on healthcare. We help clinics, hospitals, laboratories, pharmacies, and telemedicine teams turn manual, fragmented workflows into clean, reliable web software — built with Next.js, TypeScript, and Node.js.",
+    "Ace Labs is a full-stack software agency focused on healthcare. We help clinics, hospitals, laboratories, pharmacies, and telemedicine teams turn manual, fragmented workflows into clean, reliable web software, built with Next.js, TypeScript, and Node.js.",
   availability: "Available for new projects & partnerships",
   primaryCta: { label: "View Our Solutions", href: "#solutions" },
   secondaryCta: { label: "Get in Touch", href: "#contact" },
@@ -77,7 +77,7 @@ export const solutions = {
   eyebrow: "Solutions",
   title: "Healthcare systems we build.",
   description:
-    "The kinds of platforms we design and develop across the care and operations workflow — each built for clarity, security, and day-to-day reliability.",
+    "The kinds of platforms we design and develop across the care and operations workflow, each built for clarity, security, and day-to-day reliability.",
 };
 
 /* --------------------------- Core capabilities -------------------------- */
@@ -141,7 +141,7 @@ export const process = {
       icon: Rocket,
       title: "Deliver",
       description:
-        "Deploy, document, and support — with room to iterate as needs evolve.",
+        "Deploy, document, and support, with room to iterate as needs evolve.",
     },
   ] satisfies ProcessStep[],
 };
@@ -181,7 +181,7 @@ export const about = {
   title: "Building healthcare software that earns its place.",
   paragraphs: [
     "Ace Labs is a full-stack software agency based in Karachi, focused on healthcare. Our goal is to design and build secure, scalable, and user-friendly healthcare software that improves operational efficiency for the teams delivering care.",
-    "We work with clinics, hospitals, healthcare startups, laboratories, pharmacies, and telemedicine companies — building web applications with Next.js, TypeScript, and Node.js.",
+    "We work with clinics, hospitals, healthcare startups, laboratories, pharmacies, and telemedicine companies, building web applications with Next.js, TypeScript, and Node.js.",
   ],
   strengths: [
     "Full-stack development (Next.js · React · Node.js)",

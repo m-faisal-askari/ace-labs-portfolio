@@ -132,7 +132,7 @@ const solutions: Solution[] = [
       problem:
         "Independent clinics typically run scheduling, clinical notes, and invoicing in separate systems that never reconcile. The result is predictable: double-booked slots, patient details re-keyed three times, encounters that are billed late or not at all, and a front desk that spends its day on the phone chasing information. None of these tools share a source of truth, so every hand-off is a chance to lose data.",
       approach:
-        "A role-based application built on a type-safe stack, where scheduling, records, and billing all reference the same patient and encounter entities. An appointment, the clinical note attached to it, and the invoice it generates are three views of one record — so data entered once stays consistent from the booking screen through to the ledger.",
+        "A role-based application built on a type-safe stack, where scheduling, records, and billing all reference the same patient and encounter entities. An appointment, the clinical note attached to it, and the invoice it generates are three views of one record, so data entered once stays consistent from the booking screen through to the ledger.",
       keyFeatures: [
         "Appointment scheduling with real-time conflict detection",
         "Structured, versioned patient records",
@@ -165,7 +165,7 @@ const solutions: Solution[] = [
         {
           title: "Authenticate",
           description:
-            "A staff member signs in and lands on a role-specific dashboard — reception sees the day's schedule, clinicians see their patient queue.",
+            "A staff member signs in and lands on a role-specific dashboard: reception sees the day's schedule, clinicians see their patient queue.",
         },
         {
           title: "Locate or register",
@@ -192,7 +192,7 @@ const solutions: Solution[] = [
         {
           title: "Calendar as the primary surface",
           description:
-            "Reception lives in the schedule all day, so the calendar — not a menu — is the home screen, with check-in and booking reachable in a single click.",
+            "Reception lives in the schedule all day, so the calendar (not a menu) is the home screen, with check-in and booking reachable in a single click.",
         },
         {
           title: "Encounter-centric records",
@@ -210,9 +210,9 @@ const solutions: Solution[] = [
       apiArchitecture:
         "A REST API organized around resource collections: /api/patients, /api/appointments, /api/encounters, and /api/invoices, each supporting standard CRUD with filtering and pagination. Nested reads such as /api/patients/:id/appointments expose relationships without over-fetching. Authentication uses JWT access tokens with short lifetimes and refresh tokens; every route passes through role-checking middleware that authorizes the action against the caller's permissions before the handler runs.",
       frontendArchitecture:
-        "A Next.js App Router frontend using server components for data-heavy views (patient lists, schedules) and client components for interactive surfaces like the calendar and forms. Shared primitives — buttons, cards, tables, dialogs — come from a common design-system layer, and feature areas (scheduling, records, billing) are organized as self-contained route segments. Data fetching is colocated with the server components that need it, keeping client bundles small.",
+        "A Next.js App Router frontend using server components for data-heavy views (patient lists, schedules) and client components for interactive surfaces like the calendar and forms. Shared primitives (buttons, cards, tables, dialogs) come from a common design-system layer, and feature areas (scheduling, records, billing) are organized as self-contained route segments. Data fetching is colocated with the server components that need it, keeping client bundles small.",
       backendArchitecture:
-        "A Node.js and Express.js service layered into routes, controllers, and services, with data access isolated behind a repository layer over PostgreSQL (via Prisma). Business rules — conflict detection, invoice generation — live in the service layer so they are reusable and independently testable. Request validation and error handling are applied as middleware, giving every endpoint consistent input checking and error shapes.",
+        "A Node.js and Express.js service layered into routes, controllers, and services, with data access isolated behind a repository layer over PostgreSQL (via Prisma). Business rules (conflict detection, invoice generation) live in the service layer so they are reusable and independently testable. Request validation and error handling are applied as middleware, giving every endpoint consistent input checking and error shapes.",
       security: [
         "JWT-based authentication with short-lived access and refresh tokens",
         "Role-based authorization enforced in middleware on every route",
@@ -252,8 +252,8 @@ const solutions: Solution[] = [
         "An analytics dashboard for utilization and revenue trends",
       ],
       wireframes: [
-        { title: "Reception dashboard — daily schedule", image: null },
-        { title: "Patient record — encounter timeline", image: null },
+        { title: "Reception dashboard: daily schedule", image: null },
+        { title: "Patient record: encounter timeline", image: null },
         { title: "Invoice builder", image: null },
       ],
       gallery: [
@@ -271,7 +271,7 @@ const solutions: Solution[] = [
     shortDescription:
       "Admissions, departments, staff, and records coordinated through a single, auditable system.",
     longDescription:
-      "A platform for coordinating hospital operations — admissions, departments, staff, and records — with an emphasis on auditability and reliable data across teams.",
+      "A platform for coordinating hospital operations (admissions, departments, staff, and records) with an emphasis on auditability and reliable data across teams.",
     category: "clinical-operations",
     featured: false,
     technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
@@ -283,7 +283,7 @@ const solutions: Solution[] = [
       overview:
         "A multi-department platform that coordinates hospital operations from admission through discharge. Wards, clinical staff, and administrators share a single patient identity and a common set of records, while each department retains a workspace tuned to its own workflow. Sensitive actions are captured in an audit trail so responsibility for every change is traceable.",
       problem:
-        "Larger facilities span dozens of departments, each with its own staff, roles, and record-keeping habits. Without a shared system, a single patient accumulates fragments of information across admissions, wards, and clinics that never join up. Coordination breaks down at the seams — beds are double-allocated, transfers lose context, and there is no reliable audit of who changed what, when.",
+        "Larger facilities span dozens of departments, each with its own staff, roles, and record-keeping habits. Without a shared system, a single patient accumulates fragments of information across admissions, wards, and clinics that never join up. Coordination breaks down at the seams: beds are double-allocated, transfers lose context, and there is no reliable audit of who changed what, when.",
       approach:
         "A modular architecture with clearly bounded department modules over a shared identity and access-control core. Each module owns its own workflow but reads and writes against one canonical patient record, and every state change on sensitive data is written to an append-only audit log.",
       keyFeatures: [
@@ -313,7 +313,7 @@ const solutions: Solution[] = [
         "Operational reporting on occupancy and throughput",
       ],
       research:
-        "Workflow analysis focused on the transitions between departments — admission to ward, ward to ward, ward to discharge — since these hand-offs are where inpatient information is most often lost. The study confirmed that the unit of coordination is the patient's journey through the facility, not any single department's view, which drove the decision to make patient identity and the record shared while keeping the surrounding workflows modular.",
+        "Workflow analysis focused on the transitions between departments (admission to ward, ward to ward, ward to discharge), since these hand-offs are where inpatient information is most often lost. The study confirmed that the unit of coordination is the patient's journey through the facility, not any single department's view, which drove the decision to make patient identity and the record shared while keeping the surrounding workflows modular.",
       userJourney: [
         {
           title: "Admit the patient",
@@ -383,7 +383,7 @@ const solutions: Solution[] = [
         {
           title: "Balancing modularity and sharing",
           description:
-            "Each department needed autonomy without fragmenting the patient record — resolved by isolating workflows while keeping identity and records canonical.",
+            "Each department needed autonomy without fragmenting the patient record, resolved by isolating workflows while keeping identity and records canonical.",
         },
         {
           title: "Trustworthy audit trails",
@@ -405,8 +405,8 @@ const solutions: Solution[] = [
         "Standards-based interoperability (HL7 / FHIR) for external systems",
       ],
       wireframes: [
-        { title: "Admissions desk — intake and bed assignment", image: null },
-        { title: "Ward board — live capacity", image: null },
+        { title: "Admissions desk: intake and bed assignment", image: null },
+        { title: "Ward board: live capacity", image: null },
         { title: "Patient record with audit panel", image: null },
       ],
       gallery: [
@@ -424,7 +424,7 @@ const solutions: Solution[] = [
     shortDescription:
       "Online consultations, scheduling, and secure messaging for remote care teams.",
     longDescription:
-      "A telemedicine platform supporting online consultations, scheduling, and secure messaging — designed with privacy and accessibility at its core.",
+      "A telemedicine platform supporting online consultations, scheduling, and secure messaging, designed with privacy and accessibility at its core.",
     category: "telemedicine",
     featured: false,
     technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB"],
@@ -436,7 +436,7 @@ const solutions: Solution[] = [
       overview:
         "A platform that connects patients and providers for remote care, bringing consultation scheduling, secure messaging, and visit history into one accessible interface. It is built mobile-first, since a large share of remote-care sessions begin on a phone, and it treats communication and record-keeping as parts of the same encounter rather than separate tools.",
       problem:
-        "Remote care only works when scheduling, communication, and record-keeping stay coordinated and secure — yet these are often bolted together from generic video and messaging tools. Patients end up juggling links and apps, providers lose the thread of a conversation between visits, and sensitive exchanges happen in places never designed to hold health information. The friction discourages exactly the patients remote care is meant to reach.",
+        "Remote care only works when scheduling, communication, and record-keeping stay coordinated and secure, yet these are often bolted together from generic video and messaging tools. Patients end up juggling links and apps, providers lose the thread of a conversation between visits, and sensitive exchanges happen in places never designed to hold health information. The friction discourages exactly the patients remote care is meant to reach.",
       approach:
         "A mobile-first, accessible interface over a secure messaging and scheduling core, where each consultation ties together its booking, its conversation, and its notes. Availability is modeled against the provider's own calendar so patients only ever see bookable time.",
       keyFeatures: [
@@ -558,8 +558,8 @@ const solutions: Solution[] = [
         "Provider-side analytics on consultation volume and no-shows",
       ],
       wireframes: [
-        { title: "Patient home — upcoming visits", image: null },
-        { title: "Booking flow — provider availability", image: null },
+        { title: "Patient home: upcoming visits", image: null },
+        { title: "Booking flow: provider availability", image: null },
         { title: "Consultation thread", image: null },
       ],
       gallery: [
@@ -589,7 +589,7 @@ const solutions: Solution[] = [
       overview:
         "An inventory system that keeps a pharmacy's stock accurate in real time, tracking receipts, dispensing, and expiry across every product and batch. Automated thresholds surface low stock and approaching expiry before they become shortages or waste, and each dispensing event adjusts counts immediately so the recorded quantity matches the shelf.",
       problem:
-        "Manual stock tracking drifts out of sync the moment a shelf and a spreadsheet disagree. The consequences carry real cost and safety weight: essential medicines run out unnoticed, over-ordered stock ties up capital, and expired products sit undetected until someone reaches for them. Batch-level detail — which lot expires when — is exactly what manual methods handle worst.",
+        "Manual stock tracking drifts out of sync the moment a shelf and a spreadsheet disagree. The consequences carry real cost and safety weight: essential medicines run out unnoticed, over-ordered stock ties up capital, and expired products sit undetected until someone reaches for them. Batch-level detail (which lot expires when) is exactly what manual methods handle worst.",
       approach:
         "A batch-aware inventory model where every product is tracked by lot with its own expiry, and dispensing draws down specific batches. Configurable reorder points and expiry windows drive an alerting layer, turning stock management from periodic stocktakes into continuous, event-driven bookkeeping.",
       keyFeatures: [
@@ -619,7 +619,7 @@ const solutions: Solution[] = [
         "Movement, valuation, and expiry reporting",
       ],
       research:
-        "Workflow analysis of dispensing and restocking showed that inventory error accumulates at the transaction level — a dispense not recorded, a delivery logged in bulk without batch detail — rather than in periodic counts. It also confirmed that expiry risk is inherently per-batch, not per-product. These findings drove a model that records every stock movement as it happens and tracks quantity and expiry at the lot level.",
+        "Workflow analysis of dispensing and restocking showed that inventory error accumulates at the transaction level (a dispense not recorded, a delivery logged in bulk without batch detail) rather than in periodic counts. It also confirmed that expiry risk is inherently per-batch, not per-product. These findings drove a model that records every stock movement as it happens and tracks quantity and expiry at the lot level.",
       userJourney: [
         {
           title: "Sign in",
@@ -667,7 +667,7 @@ const solutions: Solution[] = [
       databaseDesign:
         "The relational model centers on Product, Batch, StockMovement, Supplier, and User. A Product has many Batches, each with its own quantity and expiry date; a Batch belongs to a Supplier via its receipt. Every receipt, dispense, and adjustment is recorded as a StockMovement referencing a Batch, so current quantity is the sum of movements and full history is preserved. Alert thresholds are stored per Product, letting reorder points and expiry windows be tuned individually.",
       apiArchitecture:
-        "A REST API over /api/products, /api/batches, /api/movements, and /api/suppliers, where dispensing and receiving are modeled as movement-creating endpoints (POST /api/movements) rather than direct quantity edits — so stock can never change without an auditable record. Alert queries expose items below threshold or nearing expiry. Authentication is JWT-based, with role-based authorization distinguishing dispensing, receiving, and management permissions.",
+        "A REST API over /api/products, /api/batches, /api/movements, and /api/suppliers, where dispensing and receiving are modeled as movement-creating endpoints (POST /api/movements) rather than direct quantity edits, so stock can never change without an auditable record. Alert queries expose items below threshold or nearing expiry. Authentication is JWT-based, with role-based authorization distinguishing dispensing, receiving, and management permissions.",
       frontendArchitecture:
         "A Next.js frontend with route segments for catalog, receiving, dispensing, and reporting, composed from a shared component library (tables, forms, alert cards). Server components render inventory and report data; client components handle the dispensing and receiving forms with immediate validation. An alerts panel is a shared component surfaced across relevant screens.",
       backendArchitecture:
@@ -711,7 +711,7 @@ const solutions: Solution[] = [
         "Controlled-substance register and compliance reporting",
       ],
       wireframes: [
-        { title: "Inventory dashboard — alerts", image: null },
+        { title: "Inventory dashboard: alerts", image: null },
         { title: "Goods-in / receiving form", image: null },
         { title: "Dispensing screen", image: null },
       ],
@@ -740,9 +740,9 @@ const solutions: Solution[] = [
     liveDemo: null,
     caseStudy: {
       overview:
-        "A system that manages the laboratory workflow end to end — from test ordering and specimen collection through result entry, validation, and report delivery. Each specimen carries a unique identity from the moment it is collected, so its position in the pipeline is always known and results are bound to the correct patient and order.",
+        "A system that manages the laboratory workflow end to end, from test ordering and specimen collection through result entry, validation, and report delivery. Each specimen carries a unique identity from the moment it is collected, so its position in the pipeline is always known and results are bound to the correct patient and order.",
       problem:
-        "A lab processes many orders and specimens at once, and manual tracking makes mix-ups, delays, and transcription errors almost inevitable. The most dangerous failure is a specimen or result attached to the wrong patient; the most common is simply not knowing where a sample is in the pipeline. Both stem from the same gap — no reliable, unbroken chain of identity from collection to report.",
+        "A lab processes many orders and specimens at once, and manual tracking makes mix-ups, delays, and transcription errors almost inevitable. The most dangerous failure is a specimen or result attached to the wrong patient; the most common is simply not knowing where a sample is in the pipeline. Both stem from the same gap: no reliable, unbroken chain of identity from collection to report.",
       approach:
         "A workflow modeled on the real order-to-result path, with each specimen assigned a unique, trackable identity (accession) at collection. Status transitions are explicit and recorded, and results are entered against the accession and validated before any report is released.",
       keyFeatures: [
@@ -842,7 +842,7 @@ const solutions: Solution[] = [
         {
           title: "Modeling the pipeline as a state machine",
           description:
-            "Capturing the real lab workflow — including reruns and rejections — as valid, enforceable status transitions took iteration with the workflow analysis.",
+            "Capturing the real lab workflow (including reruns and rejections) as valid, enforceable status transitions took iteration with the workflow analysis.",
         },
         {
           title: "Enforcing the validation gate",
@@ -865,7 +865,7 @@ const solutions: Solution[] = [
       ],
       wireframes: [
         { title: "Test ordering screen", image: null },
-        { title: "Specimen worklist — pipeline status", image: null },
+        { title: "Specimen worklist: pipeline status", image: null },
         { title: "Result entry and validation", image: null },
       ],
       gallery: [
@@ -881,7 +881,7 @@ const solutions: Solution[] = [
     slug: "patient-portal",
     title: "Patient Portal",
     shortDescription:
-      "Self-service access to appointments, records, and results — mobile-first and accessible.",
+      "Self-service access to appointments, records, and results, mobile-first and accessible.",
     longDescription:
       "A patient-facing portal offering self-service access to appointments, records, and results, built mobile-first with accessibility as a priority.",
     category: "patient-care",
@@ -893,11 +893,11 @@ const solutions: Solution[] = [
     liveDemo: null,
     caseStudy: {
       overview:
-        "A patient-facing portal that gives people self-service access to their own appointments, records, and results through a clear, accessible interface. It is the patient's window onto the systems that hold their care information, designed so that the common questions — when is my appointment, what were my results, what do I owe — are answered without a phone call.",
+        "A patient-facing portal that gives people self-service access to their own appointments, records, and results through a clear, accessible interface. It is the patient's window onto the systems that hold their care information, designed so that the common questions (when is my appointment, what were my results, what do I owe) are answered without a phone call.",
       problem:
         "Patients frequently cannot see their own appointments, results, or records without contacting the practice, which generates avoidable phone traffic, delays answers, and leaves people feeling shut out of their own care. The information usually already exists in clinical systems; what is missing is a safe, patient-appropriate way to view it. Any solution also has to present sensitive data to non-technical users of every ability level.",
       approach:
-        "A mobile-first, accessible interface built over a secure API that exposes only the data a patient is permitted to see. The portal is presentation-focused — it reads from the same clinical systems of record rather than duplicating them — with authentication and authorization treated as first-order design concerns.",
+        "A mobile-first, accessible interface built over a secure API that exposes only the data a patient is permitted to see. The portal is presentation-focused (it reads from the same clinical systems of record rather than duplicating them), with authentication and authorization treated as first-order design concerns.",
       keyFeatures: [
         "Appointment booking and history",
         "Access to personal records and results",
@@ -925,7 +925,7 @@ const solutions: Solution[] = [
         "Accessible, responsive interface across devices",
       ],
       research:
-        "Analysis of the questions patients most often phone in about — appointment times, results, and balances — showed the portal's value lies in answering a small set of high-frequency needs exceptionally well rather than exposing everything. Because users span every age and ability and often arrive on a phone, the interface was designed mobile-first and to WCAG guidance, with particular care given to presenting clinical results in plain, contextualized language.",
+        "Analysis of the questions patients most often phone in about (appointment times, results, and balances) showed the portal's value lies in answering a small set of high-frequency needs exceptionally well rather than exposing everything. Because users span every age and ability and often arrive on a phone, the interface was designed mobile-first and to WCAG guidance, with particular care given to presenting clinical results in plain, contextualized language.",
       userJourney: [
         {
           title: "Register and verify",
@@ -957,7 +957,7 @@ const solutions: Solution[] = [
         {
           title: "Focused on high-frequency needs",
           description:
-            "The interface foregrounds appointments and results — the reasons patients actually log in — rather than exposing the full clinical record indiscriminately.",
+            "The interface foregrounds appointments and results (the reasons patients actually log in) rather than exposing the full clinical record indiscriminately.",
         },
         {
           title: "Accessible, plain-language presentation",
@@ -971,11 +971,11 @@ const solutions: Solution[] = [
         },
       ],
       databaseDesign:
-        "The portal itself owns a lean data model — Account, PatientProfile, and Notification — while treating clinical data as belonging to the systems of record it reads through the API. An Account authenticates a user and links to exactly one PatientProfile, which holds portal-specific preferences and the identity binding used to authorize record access. Notifications reference an Account and the event that triggered them. Appointments, records, and results are represented as references resolved against the backing services rather than duplicated locally.",
+        "The portal itself owns a lean data model (Account, PatientProfile, and Notification) while treating clinical data as belonging to the systems of record it reads through the API. An Account authenticates a user and links to exactly one PatientProfile, which holds portal-specific preferences and the identity binding used to authorize record access. Notifications reference an Account and the event that triggered them. Appointments, records, and results are represented as references resolved against the backing services rather than duplicated locally.",
       apiArchitecture:
         "The portal consumes a REST API exposing patient-scoped resources such as /api/me/appointments, /api/me/records, and /api/me/results, where the /me convention guarantees a patient can only ever address their own data. Authentication uses JWT access tokens with refresh rotation; every request is authorized against the authenticated patient's identity, and booking is a guarded POST that validates availability before writing back.",
       frontendArchitecture:
-        "A Next.js and React frontend built entirely from reusable, accessible components — cards, lists, result panels, dialogs — with route segments for the dashboard, appointments, records, and results. Server components render the patient's data securely, keeping tokens off the client where possible, while client components handle interactive booking and notifications. TypeScript and a shared design system keep the interface consistent and maintainable.",
+        "A Next.js and React frontend built entirely from reusable, accessible components (cards, lists, result panels, dialogs) with route segments for the dashboard, appointments, records, and results. Server components render the patient's data securely, keeping tokens off the client where possible, while client components handle interactive booking and notifications. TypeScript and a shared design system keep the interface consistent and maintainable.",
       backendArchitecture:
         "The supporting backend is a Node.js and Express.js API over PostgreSQL that authenticates patients, stores portal-specific data, and mediates access to clinical systems of record. It is layered into routes, controllers, and services, with an authorization layer that resolves the authenticated patient and scopes every downstream read to their identity, so the portal can present clinical data without ever broadening a patient's reach beyond their own record.",
       security: [
@@ -1018,7 +1018,7 @@ const solutions: Solution[] = [
       ],
       wireframes: [
         { title: "Patient dashboard", image: null },
-        { title: "Appointments — view and book", image: null },
+        { title: "Appointments: view and book", image: null },
         { title: "Results with reference context", image: null },
       ],
       gallery: [

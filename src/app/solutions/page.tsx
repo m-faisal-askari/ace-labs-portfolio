@@ -14,7 +14,7 @@ import { FeaturedSolution } from "@/components/solutions/featured-solution";
 export const metadata = constructMetadata({
   title: "Healthcare Solutions",
   description:
-    "A collection of healthcare software solutions — clinic and hospital management, telemedicine, pharmacy inventory, laboratory management, and patient portals — designed and built by Ace Labs.",
+    "A collection of healthcare software solutions (clinic and hospital management, telemedicine, pharmacy inventory, laboratory management, and patient portals) designed and built by Ace Labs.",
   pathname: "/solutions",
 });
 
@@ -44,7 +44,7 @@ export default function SolutionsPage() {
         badge="Healthcare Software Portfolio"
         eyebrow="Solutions"
         title="Software built for how healthcare actually operates."
-        description="A collection of healthcare applications — spanning clinical operations, patient care, laboratories, pharmacies, and telemedicine. Each one demonstrates the design and development of secure, scalable systems for the teams that deliver care."
+        description="A collection of healthcare applications spanning clinical operations, patient care, laboratories, pharmacies, and telemedicine. Each one demonstrates the design and development of secure, scalable systems for the teams that deliver care."
       />
 
       <Section spacing="lg">

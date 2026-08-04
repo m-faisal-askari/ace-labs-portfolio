@@ -14,7 +14,7 @@ import { CallToAction } from "@/components/sections/call-to-action";
 export const metadata = constructMetadata({
   title: "About",
   description:
-    "About Ace Labs — a healthcare software agency specializing in full-stack systems for clinics, hospitals, laboratories, pharmacies, and telemedicine providers.",
+    "About Ace Labs, a healthcare software agency specializing in full-stack systems for clinics, hospitals, laboratories, pharmacies, and telemedicine providers.",
   pathname: "/about",
 });
 
