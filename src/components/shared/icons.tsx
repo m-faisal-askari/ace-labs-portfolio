@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import { Mail } from "lucide-react";
 
 /**
- * Brand/social icons. Lucide dropped brand marks (GitHub, LinkedIn, X), so
+ * Brand/social icons. Lucide dropped brand marks (GitHub, LinkedIn), so
  * those are provided here as inline SVGs. Non-brand icons re-use Lucide.
  * All accept standard SVG props (className, etc.) for sizing via Tailwind.
  */
@@ -34,22 +34,8 @@ function LinkedIn(props: IconProps) {
   );
 }
 
-function X(props: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93Zm-1.29 19.5h2.04L6.48 3.24H4.29L17.61 20.65Z" />
-    </svg>
-  );
-}
-
 export const Icons = {
   gitHub: GitHub,
   linkedIn: LinkedIn,
-  x: X,
   mail: Mail satisfies LucideIcon,
 };

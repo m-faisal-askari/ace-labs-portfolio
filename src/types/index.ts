@@ -36,7 +36,6 @@ export interface SiteConfig {
   links: {
     github?: string;
     linkedin?: string;
-    twitter?: string;
     email?: string;
   };
 }

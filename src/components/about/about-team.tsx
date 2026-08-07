@@ -25,7 +25,12 @@ export function AboutTeam() {
             <RevealItem key={member.name}>
               <Card className="h-full">
                 <CardContent className="flex h-full flex-col gap-4">
-                  <PhotoPlaceholder name={member.name} aspect="aspect-square" />
+                  <PhotoPlaceholder
+                    name={member.name}
+                    aspect="aspect-square"
+                    src={member.image}
+                    sizes="(min-width: 1024px) 22vw, (min-width: 640px) 50vw, 100vw"
+                  />
                   <div className="flex flex-col gap-1.5">
                     <h3 className="font-heading text-base font-semibold">
                       {member.name}

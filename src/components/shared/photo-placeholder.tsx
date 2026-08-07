@@ -1,20 +1,25 @@
+import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 /**
- * PhotoPlaceholder — a framed, accessible stand-in for a professional photo.
- * Shows initials + a subtle icon and label so it reads as an intentional
- * placeholder (not a broken image). Swap for a `next/image` when a real photo
- * is available. Decorative marks are hidden from assistive tech; the visible
- * label conveys intent.
+ * PhotoPlaceholder — a framed photo slot. When `src` is provided it renders the
+ * real photo with `next/image`; otherwise it shows an accessible stand-in
+ * (initials + a subtle icon and label) that reads as an intentional placeholder
+ * rather than a broken image. Decorative marks are hidden from assistive tech;
+ * the visible label conveys intent.
  */
 interface PhotoPlaceholderProps {
-  /** Full name — initials are derived from it. */
+  /** Full name — initials are derived from it, and it labels a real photo. */
   name: string;
   className?: string;
   /** Tailwind aspect ratio utility, e.g. "aspect-square" (default) or "aspect-[4/5]". */
   aspect?: string;
+  /** Path to a real photo. When set, an image is rendered instead of the placeholder. */
+  src?: string | null;
+  /** `next/image` sizes hint for the rendered photo. */
+  sizes?: string;
 }
 
 function initialsFrom(name: string): string {
@@ -30,7 +35,29 @@ export function PhotoPlaceholder({
   name,
   className,
   aspect = "aspect-square",
+  src,
+  sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
 }: PhotoPlaceholderProps) {
+  if (src) {
+    return (
+      <div
+        className={cn(
+          "relative w-full overflow-hidden rounded-2xl border border-border bg-muted",
+          aspect,
+          className,
+        )}
+      >
+        <Image
+          src={src}
+          alt={name}
+          fill
+          sizes={sizes}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       role="img"

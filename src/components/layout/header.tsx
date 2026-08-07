@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-import { siteConfig } from "@/config/site";
 import { Container } from "@/components/layout/container";
 import { MainNav } from "@/components/layout/main-nav";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -22,9 +22,9 @@ export function Header() {
       >
         <Link
           href="/"
-          className="rounded-md text-sm font-semibold tracking-tight transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          className="rounded-md transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
-          {siteConfig.name}
+          <Logo />
         </Link>
 
         {/* Centered primary nav (absolute so the brand/actions stay balanced). */}

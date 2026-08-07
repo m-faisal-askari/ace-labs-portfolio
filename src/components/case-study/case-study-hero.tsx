@@ -5,7 +5,6 @@ import type { Solution } from "@/data/solutions";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { CategoryBadge } from "@/components/solutions/category-badge";
-import { StatusBadge } from "@/components/solutions/status-badge";
 import { SolutionImage } from "@/components/solutions/solution-image";
 import { Reveal } from "@/components/shared/reveal";
 
@@ -24,7 +23,6 @@ export function CaseStudyHero({ solution }: { solution: Solution }) {
             </Button>
             <div className="flex flex-wrap items-center gap-2">
               <CategoryBadge category={solution.category} />
-              <StatusBadge status={solution.projectStatus} />
             </div>
             <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight text-balance sm:text-5xl">
               {solution.title}
@@ -35,7 +33,7 @@ export function CaseStudyHero({ solution }: { solution: Solution }) {
           </Reveal>
           <Reveal className="lg:pl-4">
             <SolutionImage
-              src={solution.image}
+              src={solution.heroImage ?? solution.image}
               title={solution.title}
               icon={solution.icon}
               aspect="aspect-[16/10]"

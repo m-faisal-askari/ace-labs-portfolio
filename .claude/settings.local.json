@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "PowerShell(npm *)",
-      "PowerShell(Test-Path node_modules/next; Test-Path node_modules/sharp; npx --no-install next --version)"
+      "PowerShell(Test-Path node_modules/next; Test-Path node_modules/sharp; npx --no-install next --version)",
+      "Bash(grep -rniE \"phone|tel:|\\\\\\\\+92|\\\\\\\\+1 \" src)",
+      "Bash(xxd)",
+      "Bash(grep -n \"paths\\\\|@/\\\\*\" tsconfig.json)",
+      "Bash(git mv *)",
+      "Bash(npm run *)",
+      "Bash(rg --files public)",
+      "Bash(rg *)"
     ]
   }
 }

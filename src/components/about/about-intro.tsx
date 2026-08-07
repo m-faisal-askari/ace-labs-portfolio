@@ -18,7 +18,12 @@ export function AboutIntro() {
       <Container size="xl">
         <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <Reveal className="mx-auto w-full max-w-xs lg:mx-0">
-            <PhotoPlaceholder name={intro.name} aspect="aspect-[4/5]" />
+            <PhotoPlaceholder
+              name={intro.name}
+              aspect="aspect-[4/5]"
+              src={intro.image}
+              sizes="(min-width: 1024px) 20rem, (min-width: 640px) 20rem, 100vw"
+            />
           </Reveal>
 
           <Reveal stagger>

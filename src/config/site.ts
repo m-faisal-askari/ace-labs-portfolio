@@ -32,10 +32,9 @@ export const siteConfig: SiteConfig = {
     "Karachi",
   ],
   links: {
-    // TODO: replace with real contact details before launch.
-    github: "https://github.com/your-handle",
-    linkedin: "https://linkedin.com/in/your-handle",
-    email: "mailto:you@example.com",
+    github: "https://github.com/Ace-Labs-LLC",
+    linkedin: "https://www.linkedin.com/company/ace-labs-official/",
+    email: "mailto:acelabs85@gmail.com",
   },
 };
 

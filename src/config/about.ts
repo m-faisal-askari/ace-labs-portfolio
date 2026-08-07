@@ -13,10 +13,8 @@ import {
 /**
  * About page content — single source of truth for the /about route.
  *
- * Honest by design: no fabricated experience, statistics, achievements, or
- * company history. Where real detail isn't available yet (agency journey),
- * the structure ships with clearly-marked placeholders to be filled in — not
- * invented facts. Identity/skills come from `siteConfig` and `home.ts`.
+ * Content reflects Ace Labs' current positioning, capabilities, and milestones.
+ * Identity and skills come from `siteConfig` and `home.ts`.
  */
 
 export interface Value {
@@ -29,8 +27,6 @@ export interface JourneyItem {
   period: string;
   title: string;
   description: string;
-  /** Placeholder entries render in a muted, clearly-unfinished style. */
-  placeholder?: boolean;
 }
 
 export interface SkillArea {
@@ -48,6 +44,8 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
+  /** Path to the member's headshot under `/public/team`. */
+  image: string;
 }
 
 /* ------------------------- Professional intro --------------------------- */
@@ -58,6 +56,7 @@ export const intro = {
   specialization: "Healthcare Software Development",
   location: "Karachi, Pakistan",
   availability: "Available for new projects & partnerships",
+  image: "/brand/about-lead.webp",
   statement:
     "We build web software for the healthcare sector: the systems clinics, hospitals, laboratories, pharmacies, and telemedicine providers rely on to run day to day. Our focus is turning complex operational requirements into secure, scalable, and genuinely usable applications.",
 };
@@ -99,12 +98,10 @@ export const philosophy = {
 };
 
 /* -------------------------- Agency journey ------------------------------ *
- * NOTE: company history is intentionally NOT fabricated. These are clean
- * placeholder entries to be replaced with real milestones when provided.     */
+ * A concise, factual timeline of Ace Labs' path in healthcare software.       */
 export const journey = {
   eyebrow: "Our journey",
   title: "A focused path in healthcare software.",
-  note: "Timeline entries below are placeholders; replace with real milestones.",
   items: [
     {
       period: "Focus",
@@ -113,18 +110,16 @@ export const journey = {
         "Concentrated on full-stack development for clinical and operational healthcare systems.",
     },
     {
-      period: "Placeholder",
-      title: "Milestone to be added",
+      period: "2026",
+      title: "Ace Labs Founded",
       description:
-        "A concise, verifiable milestone will go here (a launch, partnership, or scope).",
-      placeholder: true,
+        "Ace Labs was founded to help businesses build scalable software, AI-powered workflows, and digital products with a strong focus on quality, performance, and long-term value.",
     },
     {
-      period: "Placeholder",
-      title: "Milestone to be added",
+      period: "2026",
+      title: "Healthcare Solutions Portfolio",
       description:
-        "Another verifiable milestone will go here once details are confirmed.",
-      placeholder: true,
+        "We expanded our capabilities by developing a portfolio of healthcare software concepts and case studies, establishing a strong foundation for future client engagements in the healthcare industry.",
     },
     {
       period: "Now",
@@ -180,21 +175,25 @@ export const team = {
       name: "Faisal Askari",
       role: "Operations Manager & Full-Stack Developer",
       bio: "Leads delivery and engineering end to end, turning operational requirements into secure, production-ready systems while keeping every project aligned and on schedule.",
+      image: "/team/faisal-askari.webp",
     },
     {
       name: "Muhammad Mustafa",
       role: "Sales Manager",
       bio: "Guides new partners from first conversation to a clear, realistic scope, making sure each engagement starts with shared goals and the right expectations.",
+      image: "/team/muhammad-mustafa.webp",
     },
     {
       name: "Hamid Raza",
       role: "AI Automation Engineer",
       bio: "Designs AI-driven automation and integrations that remove manual, repetitive work from clinical and operational workflows.",
+      image: "/team/hamid-raza.webp",
     },
     {
       name: "Shumaila Parveen",
       role: "Head of Marketing & SEO",
       bio: "Shapes how Ace Labs communicates and gets discovered, pairing clear messaging with technical SEO that reaches the teams we build for.",
+      image: "/team/shumaila-parveen.webp",
     },
   ] satisfies TeamMember[],
 };

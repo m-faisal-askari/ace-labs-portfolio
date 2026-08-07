@@ -4,9 +4,10 @@ import * as React from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
-import { mainNav, siteConfig } from "@/config/site";
+import { mainNav } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { useNavActive } from "@/hooks/use-nav-active";
+import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -39,7 +40,9 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent side="right" className="w-72">
         <SheetHeader>
-          <SheetTitle className="text-left">{siteConfig.name}</SheetTitle>
+          <SheetTitle className="text-left">
+            <Logo />
+          </SheetTitle>
         </SheetHeader>
         <nav className="mt-4 flex flex-col gap-1 px-4" aria-label="Mobile">
           {mainNav.map((item) => {

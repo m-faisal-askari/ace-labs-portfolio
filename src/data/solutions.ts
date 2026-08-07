@@ -19,7 +19,7 @@ import {
  * Honesty: these describe the systems Ace Labs builds/specializes in — not
  * claimed completed client engagements. No invented clients, metrics, or
  * deployments. `github`/`liveDemo` are null until a real link exists; their
- * buttons only render when present. `projectStatus` is editable per item.
+ * buttons only render when present.
  */
 
 /** Category slugs used by the filter chips. Kept as a const union for safety. */
@@ -40,15 +40,6 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   laboratory: "Laboratory",
   pharmacy: "Pharmacy",
   telemedicine: "Telemedicine",
-};
-
-/** Project lifecycle status. */
-export type ProjectStatus = "concept" | "in-development" | "live";
-
-export const STATUS_LABELS: Record<ProjectStatus, string> = {
-  concept: "Concept",
-  "in-development": "In Development",
-  live: "Live",
 };
 
 /** A titled step / decision used by several case-study sections. */
@@ -99,9 +90,10 @@ export interface Solution {
   category: Category;
   featured: boolean;
   technologies: string[];
-  projectStatus: ProjectStatus;
-  /** Path to a project image; null renders an on-brand placeholder. */
+  /** Path to a project cover image; null renders an on-brand placeholder. */
   image: string | null;
+  /** Path to a wide lead image for the case-study hero; falls back to `image`. */
+  heroImage: string | null;
   github: string | null;
   liveDemo: string | null;
   caseStudy: SolutionCaseStudy;
@@ -122,8 +114,8 @@ const solutions: Solution[] = [
     category: "clinical-operations",
     featured: true,
     technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma"],
-    projectStatus: "concept",
-    image: null,
+    image: "/solutions/clinic-management-system/cover.webp",
+    heroImage: "/solutions/clinic-management-system/hero.webp",
     github: null,
     liveDemo: null,
     caseStudy: {
@@ -252,14 +244,14 @@ const solutions: Solution[] = [
         "An analytics dashboard for utilization and revenue trends",
       ],
       wireframes: [
-        { title: "Reception dashboard: daily schedule", image: null },
-        { title: "Patient record: encounter timeline", image: null },
-        { title: "Invoice builder", image: null },
+        { title: "Reception dashboard: daily schedule", image: "/solutions/clinic-management-system/wireframe-1.webp" },
+        { title: "Patient record: encounter timeline", image: "/solutions/clinic-management-system/wireframe-2.webp" },
+        { title: "Invoice builder", image: "/solutions/clinic-management-system/wireframe-3.webp" },
       ],
       gallery: [
-        { title: "Appointment calendar view", image: null },
-        { title: "Patient directory and search", image: null },
-        { title: "Billing and invoice screen", image: null },
+        { title: "Appointment calendar view", image: "/solutions/clinic-management-system/gallery-1.webp" },
+        { title: "Patient directory and search", image: "/solutions/clinic-management-system/gallery-2.webp" },
+        { title: "Billing and invoice screen", image: "/solutions/clinic-management-system/gallery-3.webp" },
       ],
     },
     icon: Stethoscope,
@@ -275,8 +267,8 @@ const solutions: Solution[] = [
     category: "clinical-operations",
     featured: false,
     technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker"],
-    projectStatus: "concept",
-    image: null,
+    image: "/solutions/hospital-management-system/cover.webp",
+    heroImage: "/solutions/hospital-management-system/hero.webp",
     github: null,
     liveDemo: null,
     caseStudy: {
@@ -405,14 +397,14 @@ const solutions: Solution[] = [
         "Standards-based interoperability (HL7 / FHIR) for external systems",
       ],
       wireframes: [
-        { title: "Admissions desk: intake and bed assignment", image: null },
-        { title: "Ward board: live capacity", image: null },
-        { title: "Patient record with audit panel", image: null },
+        { title: "Admissions desk: intake and bed assignment", image: "/solutions/hospital-management-system/wireframe-1.webp" },
+        { title: "Ward board: live capacity", image: "/solutions/hospital-management-system/wireframe-2.webp" },
+        { title: "Patient record with audit panel", image: "/solutions/hospital-management-system/wireframe-3.webp" },
       ],
       gallery: [
-        { title: "Department module overview", image: null },
-        { title: "Bed and ward management", image: null },
-        { title: "Audit trail view", image: null },
+        { title: "Department module overview", image: "/solutions/hospital-management-system/gallery-1.webp" },
+        { title: "Bed and ward management", image: "/solutions/hospital-management-system/gallery-2.webp" },
+        { title: "Audit trail view", image: "/solutions/hospital-management-system/gallery-3.webp" },
       ],
     },
     icon: Building2,
@@ -428,8 +420,8 @@ const solutions: Solution[] = [
     category: "telemedicine",
     featured: false,
     technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB"],
-    projectStatus: "concept",
-    image: null,
+    image: "/solutions/telemedicine-platform/cover.webp",
+    heroImage: "/solutions/telemedicine-platform/hero.webp",
     github: null,
     liveDemo: null,
     caseStudy: {
@@ -558,14 +550,14 @@ const solutions: Solution[] = [
         "Provider-side analytics on consultation volume and no-shows",
       ],
       wireframes: [
-        { title: "Patient home: upcoming visits", image: null },
-        { title: "Booking flow: provider availability", image: null },
-        { title: "Consultation thread", image: null },
+        { title: "Patient home: upcoming visits", image: "/solutions/telemedicine-platform/wireframe-1.webp" },
+        { title: "Booking flow: provider availability", image: "/solutions/telemedicine-platform/wireframe-2.webp" },
+        { title: "Consultation thread", image: "/solutions/telemedicine-platform/wireframe-3.webp" },
       ],
       gallery: [
-        { title: "Mobile consultation view", image: null },
-        { title: "Secure messaging interface", image: null },
-        { title: "Visit history", image: null },
+        { title: "Mobile consultation view", image: "/solutions/telemedicine-platform/gallery-1.webp" },
+        { title: "Secure messaging interface", image: "/solutions/telemedicine-platform/gallery-2.webp" },
+        { title: "Visit history", image: "/solutions/telemedicine-platform/gallery-3.webp" },
       ],
     },
     icon: Video,
@@ -581,8 +573,8 @@ const solutions: Solution[] = [
     category: "pharmacy",
     featured: false,
     technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Prisma"],
-    projectStatus: "concept",
-    image: null,
+    image: "/solutions/pharmacy-inventory-system/cover.webp",
+    heroImage: "/solutions/pharmacy-inventory-system/hero.webp",
     github: null,
     liveDemo: null,
     caseStudy: {
@@ -711,14 +703,14 @@ const solutions: Solution[] = [
         "Controlled-substance register and compliance reporting",
       ],
       wireframes: [
-        { title: "Inventory dashboard: alerts", image: null },
-        { title: "Goods-in / receiving form", image: null },
-        { title: "Dispensing screen", image: null },
+        { title: "Inventory dashboard: alerts", image: "/solutions/pharmacy-inventory-system/wireframe-1.webp" },
+        { title: "Goods-in / receiving form", image: "/solutions/pharmacy-inventory-system/wireframe-2.webp" },
+        { title: "Dispensing screen", image: "/solutions/pharmacy-inventory-system/wireframe-3.webp" },
       ],
       gallery: [
-        { title: "Batch and expiry tracking", image: null },
-        { title: "Low-stock alerts", image: null },
-        { title: "Inventory movement report", image: null },
+        { title: "Batch and expiry tracking", image: "/solutions/pharmacy-inventory-system/gallery-1.webp" },
+        { title: "Low-stock alerts", image: "/solutions/pharmacy-inventory-system/gallery-2.webp" },
+        { title: "Inventory movement report", image: "/solutions/pharmacy-inventory-system/gallery-3.webp" },
       ],
     },
     icon: Pill,
@@ -734,8 +726,8 @@ const solutions: Solution[] = [
     category: "laboratory",
     featured: false,
     technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
-    projectStatus: "concept",
-    image: null,
+    image: "/solutions/laboratory-management-system/cover.webp",
+    heroImage: "/solutions/laboratory-management-system/hero.webp",
     github: null,
     liveDemo: null,
     caseStudy: {
@@ -864,14 +856,14 @@ const solutions: Solution[] = [
         "Turnaround-time analytics across the pipeline",
       ],
       wireframes: [
-        { title: "Test ordering screen", image: null },
-        { title: "Specimen worklist: pipeline status", image: null },
-        { title: "Result entry and validation", image: null },
+        { title: "Test ordering screen", image: "/solutions/laboratory-management-system/wireframe-1.webp" },
+        { title: "Specimen worklist: pipeline status", image: "/solutions/laboratory-management-system/wireframe-2.webp" },
+        { title: "Result entry and validation", image: "/solutions/laboratory-management-system/wireframe-3.webp" },
       ],
       gallery: [
-        { title: "Order-to-result pipeline", image: null },
-        { title: "Structured result entry", image: null },
-        { title: "Generated lab report", image: null },
+        { title: "Order-to-result pipeline", image: "/solutions/laboratory-management-system/gallery-1.webp" },
+        { title: "Structured result entry", image: "/solutions/laboratory-management-system/gallery-2.webp" },
+        { title: "Generated lab report", image: "/solutions/laboratory-management-system/gallery-3.webp" },
       ],
     },
     icon: FlaskConical,
@@ -887,8 +879,8 @@ const solutions: Solution[] = [
     category: "patient-care",
     featured: false,
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    projectStatus: "concept",
-    image: null,
+    image: "/solutions/patient-portal/cover.webp",
+    heroImage: "/solutions/patient-portal/hero.webp",
     github: null,
     liveDemo: null,
     caseStudy: {
@@ -1017,14 +1009,14 @@ const solutions: Solution[] = [
         "Standards-based record access (FHIR) across providers",
       ],
       wireframes: [
-        { title: "Patient dashboard", image: null },
-        { title: "Appointments: view and book", image: null },
-        { title: "Results with reference context", image: null },
+        { title: "Patient dashboard", image: "/solutions/patient-portal/wireframe-1.webp" },
+        { title: "Appointments: view and book", image: "/solutions/patient-portal/wireframe-2.webp" },
+        { title: "Results with reference context", image: "/solutions/patient-portal/wireframe-3.webp" },
       ],
       gallery: [
-        { title: "Mobile portal dashboard", image: null },
-        { title: "Records and results view", image: null },
-        { title: "Notifications", image: null },
+        { title: "Mobile portal dashboard", image: "/solutions/patient-portal/gallery-1.webp" },
+        { title: "Records and results view", image: "/solutions/patient-portal/gallery-2.webp" },
+        { title: "Notifications", image: "/solutions/patient-portal/gallery-3.webp" },
       ],
     },
     icon: Users,

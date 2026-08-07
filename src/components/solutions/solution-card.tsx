@@ -6,14 +6,13 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
 import { CategoryBadge } from "@/components/solutions/category-badge";
-import { StatusBadge } from "@/components/solutions/status-badge";
 import { SolutionImage } from "@/components/solutions/solution-image";
 import { TechnologyList } from "@/components/solutions/technology-badge";
 
 /**
  * SolutionCard — one reusable card for a healthcare solution. Renders entirely
- * from a `Solution` record: image (or placeholder), category + status badges,
- * title, summary, tech stack, and actions. External links (GitHub / live demo)
+ * from a `Solution` record: image (or placeholder), category badge, title,
+ * summary, tech stack, and actions. External links (GitHub / live demo)
  * appear only when present in the data — never fabricated.
  *
  * Enterprise styling, obsidian theme, subtle hover lift (shadow + border, no
@@ -47,7 +46,6 @@ export function SolutionCard({
       <div className="flex flex-1 flex-col gap-4 p-5 pt-2">
         <div className="flex flex-wrap items-center gap-2">
           <CategoryBadge category={solution.category} />
-          <StatusBadge status={solution.projectStatus} />
         </div>
 
         <div className="flex flex-col gap-1.5">

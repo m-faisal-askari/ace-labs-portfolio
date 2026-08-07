@@ -11,16 +11,19 @@ import { Textarea } from "@/components/ui/textarea";
 
 /**
  * ContactForm — client-side contact form with inline validation and
- * submitting / success / error states. NOT wired to a backend yet: the submit
- * handler is a stubbed async call. To connect a real endpoint later, replace
- * the body of `submitContact()` with a `fetch("/api/contact", …)` call — the
- * field names already map to a typical payload.
+ * submitting / success / error states. Submissions are delivered by Web3Forms
+ * (https://web3forms.com): `submitContact()` POSTs the fields to their API,
+ * which emails the configured inbox. The access key is a public, per-inbox
+ * token read from `NEXT_PUBLIC_WEB3FORMS_KEY` (see `.env.example`).
  */
 
 type Fields = "name" | "email" | "company" | "subject" | "message";
 type FormState = "idle" | "submitting" | "success" | "error";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
 function validate(values: Record<Fields, string>) {
   const errors: Partial<Record<Fields, string>> = {};
@@ -34,10 +37,33 @@ function validate(values: Record<Fields, string>) {
   return errors;
 }
 
-/** Stub submit — swap for a real API call later. Resolves after a short delay. */
-async function submitContact(_values: Record<Fields, string>): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, 900));
-  // throw new Error("network"); // (future: surface real API errors)
+/** Sends the message via Web3Forms. Throws on missing config or a failed send. */
+async function submitContact(values: Record<Fields, string>): Promise<void> {
+  if (!WEB3FORMS_KEY) {
+    throw new Error("Missing NEXT_PUBLIC_WEB3FORMS_KEY.");
+  }
+
+  const res = await fetch(WEB3FORMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_KEY,
+      from_name: values.name,
+      subject: `New inquiry: ${values.subject}`,
+      name: values.name,
+      email: values.email,
+      company: values.company || "Not provided",
+      message: values.message,
+    }),
+  });
+
+  const data = (await res.json()) as { success?: boolean };
+  if (!res.ok || !data.success) {
+    throw new Error("Web3Forms submission failed.");
+  }
 }
 
 export function ContactForm() {

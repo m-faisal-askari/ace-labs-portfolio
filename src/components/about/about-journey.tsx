@@ -1,13 +1,10 @@
 import { journey } from "@/config/about";
-import { cn } from "@/lib/utils";
 import { Section, SectionHeader } from "@/components/layout/section";
-import { Tag } from "@/components/ui/tag";
 import { Reveal, RevealItem } from "@/components/shared/reveal";
 
 /**
- * Career Journey — a clean vertical timeline. Employment history is NOT
- * invented: entries flagged `placeholder` render in a muted, clearly-unfinished
- * style with a "Placeholder" tag, ready to be replaced with real milestones.
+ * Career Journey — a clean vertical timeline of Ace Labs milestones, rendered
+ * from `journey.items` in config order.
  */
 export function AboutJourney() {
   return (
@@ -28,27 +25,14 @@ export function AboutJourney() {
               {/* Node */}
               <span
                 aria-hidden
-                className={cn(
-                  "absolute -start-[1.9rem] top-1 flex size-3.5 items-center justify-center rounded-full border-2 border-background",
-                  item.placeholder ? "bg-border" : "bg-emerald",
-                )}
+                className="absolute -start-[1.9rem] top-1 flex size-3.5 items-center justify-center rounded-full border-2 border-background bg-emerald"
               />
               <div className="flex flex-wrap items-center gap-2">
                 <span className="font-mono text-xs font-medium tracking-wide text-muted-foreground uppercase">
                   {item.period}
                 </span>
-                {item.placeholder ? (
-                  <Tag variant="outline" size="sm">
-                    Placeholder
-                  </Tag>
-                ) : null}
               </div>
-              <h3
-                className={cn(
-                  "mt-1 font-heading text-base font-semibold",
-                  item.placeholder && "text-muted-foreground",
-                )}
-              >
+              <h3 className="mt-1 font-heading text-base font-semibold">
                 {item.title}
               </h3>
               <p className="mt-1 text-sm text-muted-foreground text-pretty">
@@ -58,10 +42,6 @@ export function AboutJourney() {
           ))}
         </div>
       </Reveal>
-
-      <p className="mt-8 text-center text-xs text-muted-foreground">
-        {journey.note}
-      </p>
     </Section>
   );
 }

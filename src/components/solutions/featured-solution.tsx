@@ -5,7 +5,6 @@ import { type Solution } from "@/data/solutions";
 import { Section, SectionHeader } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { CategoryBadge } from "@/components/solutions/category-badge";
-import { StatusBadge } from "@/components/solutions/status-badge";
 import { SolutionImage } from "@/components/solutions/solution-image";
 import { TechnologyList } from "@/components/solutions/technology-badge";
 import { Reveal } from "@/components/shared/reveal";
@@ -41,7 +40,6 @@ export function FeaturedSolution({ solution }: { solution: Solution | undefined 
           />
           <div className="flex flex-wrap items-center gap-2">
             <CategoryBadge category={solution.category} />
-            <StatusBadge status={solution.projectStatus} />
           </div>
         </div>
 
